@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAEED GIMER</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#080812;color:white;font-family:Tahoma}
+header{text-align:center;padding:25px;background:#151326;border-bottom:2px solid #9b36ff}
+h1{color:#bd75ff;text-shadow:0 0 20px #a000ff}
+.hero{text-align:center;padding:65px 15px;background:linear-gradient(135deg,#240044,#001b35)}
+.hero h2{color:#45eaff;font-size:28px}
+button{background:linear-gradient(90deg,#a000ff,#00bfff);border:0;padding:13px 25px;border-radius:10px;color:white;font-weight:bold}
+section{padding:20px}
+input{width:100%;padding:14px;background:#17172a;color:white;border:1px solid #8b35ff;border-radius:10px;margin:10px 0}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:15px}
+.card{background:#17172a;border:1px solid #7034a9;border-radius:15px;padding:15px;text-align:center}
+.card h3{color:#45eaff}
+.card img{width:100%;height:110px;object-fit:cover;border-radius:10px}
+footer{text-align:center;padding:25px;color:#aaa}
+</style>
+</head>
+<body>
+<header>
+<h1>🎮 SAEED GIMER</h1>
+<p>دنیای بازی ها</p>
+</header>
+<div class="hero">
+<h2>به دنیای گیمینگ خوش آمدی!</h2>
+<p>بازی مورد علاقه ات را پیدا کن</p>
+<a href="#games"><button>مشاهده بازی ها</button></a>
+</div>
+<section id="games">
+<h2>🔥 بازی ها</h2>
+<input id="search" placeholder="جستجوی بازی..." oninput="showGames()">
+<div class="games" id="list"></div>
+</section>
+<footer>SAEED GIMER © 2026</footer>
+<script>
+const games=[
+{name:"Minecraft",desc:"ماجراجویی و ساخت وساز"},
+{name:"GTA",desc:"جهان باز"},
+{name:"Racing",desc:"مسابقه ای"}
+];
+function showGames(){
+let q=document.getElementById("search").value.toLowerCase();
+document.getElementById("list").innerHTML=games.filter(g=>g.name.toLowerCase().includes(q)).map(g=>`
+<div class="card">
+<h3>${g.name}</h3>
+<p>${g.desc}</p>
+<button disabled>به زودی</button>
+</div>`).join("");
+}
+showGames();
+</script>
+</body>
+</html>
